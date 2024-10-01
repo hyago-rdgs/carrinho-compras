@@ -5,6 +5,18 @@ function adicionar(){
     //buscando valores
     let item_escolhido = document.getElementById('produto').value.split(" - ");
     let quantidade = document.getElementById('quantidade').value;
+
+    //valida os produtos e a quantidade
+    if (!item_escolhido || item_escolhido.trim() === "") {
+        alert("Selecione um produto válido!");
+        return;
+    }
+
+    if (isNaN(quantidade) || quantidade <= 0) {
+        alert("Insira uma quantidade válida!");
+        return;
+    }
+
     let produto = item_escolhido[0];
     let valor_unitario = parseInt(item_escolhido[1].match(/\d/g).join(""));
     
