@@ -3,7 +3,7 @@ document.getElementById("valor-total").innerText = `R$ 0`;
 
 function adicionar(){
     //buscando valores
-    let item_escolhido = document.getElementById('produto').value.split(" - ");
+    let item_escolhido = document.getElementById('produto').value;
     let quantidade = document.getElementById('quantidade').value;
 
     //valida os produtos e a quantidade
@@ -17,8 +17,8 @@ function adicionar(){
         return;
     }
 
-    let produto = item_escolhido[0];
-    let valor_unitario = parseInt(item_escolhido[1].match(/\d/g).join(""));
+    let produto = item_escolhido.split(" - ")[0];
+    let valor_unitario = item_escolhido.split("R$")[1];
     
     //calculo de subtotal
     let preco = quantidade * valor_unitario;
